@@ -85,6 +85,9 @@ namespace UnityEngine.Rendering.PostProcessing
         [Range(0f, 4f), Tooltip("The degree of darkness added by ambient occlusion. Higher values produce darker areas.")]
         public FloatParameter intensity = new FloatParameter { value = 0f };
 
+        [Range(0f, 4f), Tooltip("Multiplier to intensity when using Scalable Ambient Obscurance.")]
+        public FloatParameter intensitySAOMultiplier = new FloatParameter { value = 0f };
+
         /// <summary>
         /// A custom color to use for the ambient occlusion.
         /// </summary>

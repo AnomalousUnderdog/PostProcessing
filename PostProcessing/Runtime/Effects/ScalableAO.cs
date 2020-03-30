@@ -82,6 +82,11 @@ namespace UnityEngine.Rendering.PostProcessing
             float pz = downsampling ? 0.5f : 1f;
             float pw = m_SampleCount[(int)m_Settings.quality.value];
 
+			if (m_Settings.mode.value == AmbientOcclusionMode.ScalableAmbientObscurance)
+			{
+				px *= m_Settings.intensitySAOMultiplier.value;
+			}
+
             var sheet = m_PropertySheet;
             sheet.ClearKeywords();
             sheet.properties.SetVector(ShaderIDs.AOParams, new Vector4(px, py, pz, pw));

@@ -8,6 +8,7 @@ namespace UnityEditor.Rendering.PostProcessing
     {
         SerializedParameterOverride m_Mode;
         SerializedParameterOverride m_Intensity;
+        SerializedParameterOverride m_IntensitySAOMultiplier;
         SerializedParameterOverride m_Color;
         SerializedParameterOverride m_AmbientOnly;
         SerializedParameterOverride m_ThicknessModifier;
@@ -19,6 +20,7 @@ namespace UnityEditor.Rendering.PostProcessing
         {
             m_Mode = FindParameterOverride(x => x.mode);
             m_Intensity = FindParameterOverride(x => x.intensity);
+			m_IntensitySAOMultiplier = FindParameterOverride(x => x.intensitySAOMultiplier);
             m_Color = FindParameterOverride(x => x.color);
             m_AmbientOnly = FindParameterOverride(x => x.ambientOnly);
             m_ThicknessModifier = FindParameterOverride(x => x.thicknessModifier);
@@ -42,6 +44,7 @@ namespace UnityEditor.Rendering.PostProcessing
 
             if (aoMode == (int)AmbientOcclusionMode.ScalableAmbientObscurance)
             {
+				PropertyField(m_IntensitySAOMultiplier);
                 PropertyField(m_Radius);
                 PropertyField(m_Quality);
             }
