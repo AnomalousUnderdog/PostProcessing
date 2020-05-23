@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace UnityEngine.Rendering.PostProcessing
 {
-#if ENABLE_VR
+#if PROJECT_ENABLE_VR
     using XRSettings = UnityEngine.XR.XRSettings;
 #endif
 
@@ -26,7 +26,7 @@ namespace UnityEngine.Rendering.PostProcessing
             {
                 m_Camera = value;
 
-#if !UNITY_SWITCH && ENABLE_VR
+#if !UNITY_SWITCH && PROJECT_ENABLE_VR
                 if (m_Camera.stereoEnabled)
                 {
                     var xrDesc = XRSettings.eyeTextureDesc;
